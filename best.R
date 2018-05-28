@@ -13,11 +13,20 @@ best <- function(state=NA, outcome=NA) {
           print("Invalid State")
       } else if (!any(outcome == outcomeset)) {
           print("Invalid Outcome")
-      } else {
+      } else if (outcome == 'heart attack') {
           ss <- subset(bestset,select = c(HospName,HA),
                      subset = (State == state))
           ss <- ss[order(ss$HA),]
-          print(ss[1,1])
+          paste(ss[1,1])
+      } else if (outcome == 'heart failure') {
+          ss <- subset(bestset,select = c(HospName,HF),
+                     subset = (State == state))
+          ss <- ss[order(ss$HF),]
+          paste(ss[1,1])
+      } else if (outcome == 'pneumonia') {
+          ss <- subset(bestset,select = c(HospName,PN),
+                     subset = (State == state))
+          ss <- ss[order(ss$PN),]
+          paste(ss[1,1])
       }
-        
 }
