@@ -16,17 +16,17 @@ best <- function(state=NA, outcome=NA) {
       } else if (outcome == 'heart attack') {
           ss <- subset(bestset,select = c(HospName,HA),
                      subset = (State == state))
-          ss <- ss[order(ss$HA),]
+          ss <- ss[order(ss$HA,ss$HospName),]
           paste(ss[1,1])
       } else if (outcome == 'heart failure') {
           ss <- subset(bestset,select = c(HospName,HF),
                      subset = (State == state))
-          ss <- ss[order(ss$HF),]
+          ss <- ss[order(ss$HF,ss$HospName),]
           paste(ss[1,1])
       } else if (outcome == 'pneumonia') {
           ss <- subset(bestset,select = c(HospName,PN),
                      subset = (State == state))
-          ss <- ss[order(ss$PN),]
+          ss <- ss[order(ss$PN,ss$HospName),]
           paste(ss[1,1])
       }
 }
