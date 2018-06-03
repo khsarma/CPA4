@@ -17,7 +17,7 @@ best <- function(state, outcome) {
       } else if (!any(col %in% c(3,4,5))) { 
             print("Invalid Outcome")
       } else  {
-          ss <- bestset[bestset$States==state,c(1,col)]
+          ss <- bestset[bestset$States == state,c(1,col)]
           ss[,2] <- suppressWarnings(as.numeric(ss[,2]))
           ss <- ss[order(ss[,2],ss[,1], na.last = NA),]
           paste(ss[1,1])
